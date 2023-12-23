@@ -4,7 +4,7 @@
   "description": "Node App that connects to MongoDB",
   "main": "server.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "server": "nodemon server.js"
   },
   "author": "Josi Suckart",
   "license": "MIT",
