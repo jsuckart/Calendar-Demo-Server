@@ -14,12 +14,16 @@ const getEntries = asyncHandler( async (req, res) => {
 // @route POST /calendar
 // @access Private
 const createEntries = asyncHandler( async (req, res) => {
-    if(!req.body.text){
+    if(!req.body.title){
         res.status(400)
         throw new Error('Please add a text field')
     }
     const entry = await Entry.create({
-        title: req.body.text
+        title: req.body.title,
+        startDate: req.body.startDate,
+        endDate: req.body.endDate,
+        color: req.body.color,
+        allDay: req.body.allDay,
     })
 
     res.status(200).json(entry);
