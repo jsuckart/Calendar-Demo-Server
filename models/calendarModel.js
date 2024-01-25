@@ -21,6 +21,12 @@ const calendarSchema = mongoose.Schema({
             type: Boolean,
             required: [true, 'please add a allDay value']
         },
+    files: [{
+        fileRef: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'File'},
+        filename: String
+    }]
         },
     {
         timestamps: true,
