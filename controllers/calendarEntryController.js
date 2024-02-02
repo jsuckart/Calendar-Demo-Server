@@ -10,6 +10,15 @@ const getEntries = asyncHandler( async (req, res) => {
     res.status(200).json(entries);
 })
 
+const getEntriesUser = asyncHandler( async (req, res) => {
+    try{
+    const entries = await Entry.find({ users: req.params.userId });
+    res.status(200).json(entries);}
+    catch (error) {
+        res.status(500).send('Error retrieving events');
+    }
+})
+
 // @desc Create Entries
 // @route POST /calendar
 // @access Private
@@ -24,6 +33,11 @@ const createEntries = asyncHandler( async (req, res) => {
         endDate: req.body.endDate,
         color: req.body.color,
         allDay: req.body.allDay,
+        isOnSite: req.body.isOnSite,
+        room: req.body.room,
+        remoteLink: req.body.remoteLink,
+        isMilestone: req.body.isMilestone,
+        users: req.body.users
     })
 
     res.status(200).json(entry);
@@ -68,4 +82,5 @@ module.exports = {
     createEntries,
     updateEntries,
     deleteEntries,
+    getEntriesUser
 }
