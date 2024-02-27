@@ -33,6 +33,7 @@ const createEntries = asyncHandler( async (req, res) => {
         endDate: req.body.endDate,
         color: req.body.color,
         allDay: req.body.allDay,
+        textArea: req.body.textArea,
         isOnSite: req.body.isOnSite,
         room: req.body.room,
         remoteLink: req.body.remoteLink,

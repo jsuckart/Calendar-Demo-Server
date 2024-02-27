@@ -39,6 +39,10 @@ const calendarSchema = mongoose.Schema({
             type: String,
         },
 
+    textArea: {
+            type: String,
+        },
+
     isMilestone: {
             type: Boolean,
             required: [true, 'please add isMilestone value']
